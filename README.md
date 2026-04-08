@@ -1,4 +1,4 @@
-## Section A
+## Section A:
 
 ---
 
@@ -36,13 +36,15 @@ This circuit measures the user's reaction time using an LED and a pushbutton. Th
 
 ---
 
-## Section B: Smart Distance Alert System
+## Section B:
+
+## 1: Smart Distance Alert System
 
 ### Description
-This project uses an ultrasonic sensor to detect the distance of nearby objects and alert the user when the object comes within a specific range. It is useful for obstacle detection and safety systems.
+This project detects how close an object is using an ultrasonic sensor. When something comes near, it gives an alert using an LED, buzzer, and motor.
 
 ### Why I chose this project
-I chose this project to understand how sensors work with Arduino and to learn real-time distance measurement and alert systems.
+I chose this project to learn how sensors work with Arduino and how we can use them in real-life situations like safety and alerts.
 
 ### Components Used
 - Arduino Uno
@@ -50,22 +52,163 @@ I chose this project to understand how sensors work with Arduino and to learn re
 - LED
 - Buzzer
 - DC Motor
-- Resistors and connecting wires
+- Resistors and wires
 
 ### Working
-The ultrasonic sensor sends sound waves and receives the reflected signal to calculate distance. The Arduino processes this data and checks if the object is within the range of 2–20 cm. If the object is within this range, the LED glows, the buzzer sounds, and the motor turns ON. If the object is outside this range, all outputs remain OFF.
+The ultrasonic sensor checks the distance of objects in front of it.
+If an object comes closer (between 2 cm and 20 cm):
+- LED turns ON
+- Buzzer makes sound
+- Motor starts running
+
+If the object is far away:
+- Everything stays OFF
 
 ### Challenges Faced
-- Unstable sensor readings were observed initially, which were fixed by adding delay and filtering conditions.
-- Wiring confusion in the ultrasonic sensor connections was corrected after testing each component separately.
+- At first, the distance readings were not stable
+- I fixed it by adjusting the code and adding small delays
+- I also got confused with sensor connections, but solved it by testing step by step
 
 ### Applications
-- Vehicle parking assistance  
-- Obstacle detection in robots  
-- Aid for visually impaired people  
-- Industrial safety systems  
-- Automatic doors and security systems
+- Parking assistance in vehicles
+- Obstacle detection in robots
+- Help for visually impaired people
+- Safety systems in industries
+- Automatic doors
   
 ### Tinkercad Link
 https://www.tinkercad.com/things/futop1CPRuw-section-b
+
+
+---
+
+
+##  2: Smart Door Lock System
+
+### Description
+
+This project is a simple smart door lock system using Arduino.
+It allows a user to enter a password using a keypad. If the password is correct, the door opens using a servo motor. If the password is wrong, it gives a warning using LED and buzzer.
+
+---
+
+###  What this project does
+
+I chose this project because it is a basic real-life application of electronics used in homes, lockers, and security systems.
+
+---
+
+### Components Used
+
+* Arduino Uno → Main controller
+* 4x4 Keypad → To enter password
+* 16x2 LCD → To show messages
+* Servo Motor → To open/close door
+* Buzzer → Sound alert
+* Green LED → Shows correct password
+* Red LED → Shows wrong password
+* Breadboard & wires → Connections
+
+---
+
+### What each part does
+
+* **Keypad** → Takes input from user
+* **LCD** → Displays messages like "Enter Password", "Access Granted"
+* **Servo Motor** → Acts like a door (rotates to open/close)
+* **Green LED** → Turns ON when password is correct
+* **Red LED** → Turns ON when password is wrong
+* **Buzzer** → Gives sound for success and error
+
+---
+
+###  How to use the system
+
+* Enter numbers using keypad
+* Press `#` to confirm
+* Press `*` to clear input
+* Press `A` to change password
+* Press `D` to close door manually
+
+---
+
+###  Default Password
+
+ The default password is: **1234**
+
+To test the project:
+
+1. Enter `1234`
+2. Press `#`
+3. Door will open
+
+---
+
+### Password Change
+
+1. Press `A`
+2. Enter current password
+3. Enter new password
+4. Password will be updated
+
+---
+
+### Working Explanation (Code Logic)
+
+* The keypad reads user input and stores it in a string
+* When `#` is pressed, input is checked with stored password
+* If correct:
+
+  * Servo rotates (door opens)
+  * Green LED ON
+  * Buzzer beeps
+* After a few seconds:
+
+  * Door closes automatically
+* If wrong:
+
+  * Red LED ON
+  * Buzzer alert
+  * Attempts increase
+* If wrong password entered 3 times:
+
+  * System locks for few seconds
+
+The program uses a simple state system to control:
+
+* Access granted
+* Door closed
+
+This helps in smooth working without delay issues.
+
+---
+
+### Challenges faced
+
+* Initially, timing was not working properly because of delay
+* Fixed it using millis() for better control
+* LCD display was overlapping, fixed by clearing line before printing
+
+---
+
+### Output
+
+* LCD shows messages clearly
+* Servo opens and closes door
+* LEDs indicate correct/wrong password
+* Buzzer gives sound feedback
+
+---
+
+### Applications
+
+* Home security systems
+* Digital lockers
+* Basic access control systems
+
+---
+
+### Tinkercad Link
+https://www.tinkercad.com/things/fjtfWZDR7BZ-ingenious-tumelo-hillar
+
 
